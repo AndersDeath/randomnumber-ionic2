@@ -1,0 +1,69 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      {{this.words.title}}
+    </ion-title>
+    <ion-segment color="light" [(ngModel)]="selectedLang" (ngModelChange)="langChange()">
+      <ion-segment-button value="ru">
+        {{this.words.russian}}
+      </ion-segment-button>
+      <ion-segment-button value="en">
+        {{this.words.english}}
+      </ion-segment-button>
+    </ion-segment>
+
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <ion-card padding class="main-card">
+    <ion-row>
+      <ion-col>
+        <ion-card>
+          <ion-card-header>
+            <h1 style="font-size:2em;">{{randomNumber}}</h1>
+          </ion-card-header>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col col-12>
+        <ion-card>
+          <ion-row no-padding>
+            <ion-col col-12>
+              <ion-item>
+                <ion-label>
+                    {{this.words.min}}
+                  </ion-label>
+                <ion-input type="number" placeholder="0" text-left [(ngModel)]="min" (ngModelChange)="minValidator()"></ion-input>
+              </ion-item>
+            </ion-col>
+          </ion-row>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col col-12>
+        <ion-card>
+          <ion-row no-padding>
+            <ion-col col-12>
+              <ion-item>
+                <ion-label>
+                  {{this.words.max}}
+                  </ion-label>
+                <ion-input type="number" placeholder="0" text-left [(ngModel)]="max" (ngModelChange)="maxValidator()"></ion-input>
+              </ion-item>
+            </ion-col>
+          </ion-row>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+    <ion-row no-padding>
+      <ion-col text-center col-12>
+        <button block ion-button color="secondary" icon-start (click)="generate()">
+          <ion-icon name='flame'></ion-icon>
+          {{this.words.generate}}
+        </button>
+      </ion-col>
+    </ion-row>
+  </ion-card>
+</ion-content>
